@@ -9,4 +9,6 @@ def render_ui(functions:dict)->None:
             fu = functions[function]
             st.code(fu(input_str))
         except Exception as e:
-            st.error(f"Произошла ошибка:\n{e}")     
+            st.error(f"Произошла ошибка:\n\n{e}") 
+
+   
