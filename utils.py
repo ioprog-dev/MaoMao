@@ -1,78 +1,14 @@
 from typing import Union
-from constants import report_gen_qeue
+from constants import report_gen_qeue, protein_tg_table
 
 
 triplets_to_string = lambda triplets: " ".join(triplets)
 
 
-def genetikcode_generator(raw_str: str):
+def protein_chein_generator(raw_str: str):
     """Функция принимает на вход И РНК и возвращает последовательность аминокислот"""
     eliments = raw_str.split()
-    tg_table = {
-        "УУУ": "Фен",
-        "УУЦ": "Фен",
-        "УУА": "Лей",
-        "УУГ": "Лей",
-        "УЦУ": "Сер",
-        "УЦЦ": "Сер",
-        "УЦА": "Сер",
-        "УЦГ": "Сер",
-        "УАУ": "Тир",
-        "УАЦ": "Тир",
-        "УАА": "___",
-        "УАГ": "___",
-        "УГУ": "Цис",
-        "УГЦ": "Цис",
-        "УГА": "___",
-        "УГГ": "Трп",
-        "ЦУУ": "Лей",
-        "ЦУЦ": "Лей",
-        "ЦУА": "Лей",
-        "ЦУГ": "Лей",
-        "ЦЦУ": "Про",
-        "ЦЦЦ": "Про",
-        "ЦЦА": "Про",
-        "ЦЦГ": "Про",
-        "ЦАУ": "Гис",
-        "ЦАЦ": "Гис",
-        "ЦАА": "Глн",
-        "ЦАГ": "Глн",
-        "ЦГУ": "Арг",
-        "ЦГЦ": "Арг",
-        "ЦГА": "Арг",
-        "ЦГГ": "Арг",
-        "АУУ": "Иле",
-        "АУЦ": "Иле",
-        "АУА": "Иле",
-        "АУГ": "Мет",
-        "АЦУ": "Тре",
-        "АЦЦ": "Тре",
-        "АЦА": "Тре",
-        "АЦГ": "Тре",
-        "ААУ": "Асн",
-        "ААЦ": "Асн",
-        "ААА": "Лиз",
-        "ААГ": "Лиз",
-        "АГУ": "Сер",
-        "АГЦ": "Сер",
-        "АГА": "Арг",
-        "АГГ": "Арг",
-        "ГУУ": "Вал",
-        "ГУЦ": "Вал",
-        "ГУА": "Вал",
-        "ГУГ": "Вал",
-        "ГЦУ": "Ала",
-        "ГЦЦ": "Ала",
-        "ГЦА": "Ала",
-        "ГЦГ": "Ала",
-        "ГАУ": "Асп",
-        "ГАЦ": "Асп",
-        "ГАА": "Глу",
-        "ГАГ": "Глу",
-        "ГГУ": "Гли",
-        "ГГЦ": "Гли",
-        "ГГА": "Гли",
-    }
+    tg_table = protein_tg_table
 
     for i in range(len(eliments)):
         eliments[i] = tg_table[eliments[i]]
@@ -103,7 +39,7 @@ def gen_report(raw_data: str) -> str:
     for i in report_gen_qeue:
         report.append(triplets_to_string(trepetize_string(replaicer(raw_data, i))))
     else:
-        report.append(genetikcode_generator(report[-1]))
+        report.append(protein_chein_generator(report[-1]))
         return "\n".join(report)
 
 
