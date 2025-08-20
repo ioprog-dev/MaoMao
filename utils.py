@@ -48,3 +48,7 @@ def clean_string(raw_string: str, permited_syms: list) -> str:
         raw_string = raw_string.replace(i, "")
     else:
         return raw_string
+    
+
+def gen_report_from_aminocislots_chein(raw_str:str):
+    
