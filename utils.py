@@ -50,5 +50,3 @@ def clean_string(raw_string: str, permited_syms: list) -> str:
         return raw_string
     
 
-def gen_report_from_aminocislots_chein(raw_str:str):
-    
